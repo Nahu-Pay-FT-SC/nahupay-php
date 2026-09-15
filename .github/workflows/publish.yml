@@ -1,0 +1,29 @@
+name: Tag and notify Packagist
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  test:
+    name: Run tests on tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run tests
+        run: vendor/bin/phpunit
+
+  # Packagist auto-syncs from GitHub on every push/tag — no publish step needed.
+  # Just make sure the repo is linked at https://packagist.org/packages/nahupay/nahupay-php
+  # and the GitHub webhook is set up (Packagist → Settings → Update webhook URL).

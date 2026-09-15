@@ -1,0 +1,50 @@
+{
+    "name": "nahupay/nahupay-php",
+    "description": "Official PHP / Laravel SDK for the NahuPay payment platform",
+    "type": "library",
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NahuPay",
+            "homepage": "https://nahupay.com"
+        }
+    ],
+    "keywords": [
+        "payment", "nahupay", "ethiopia", "telebirr", "mpesa", "laravel"
+    ],
+    "require": {
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "NahuPay\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NahuPay\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NahuPay\\Laravel\\NahuPayServiceProvider"
+            ],
+            "aliases": {
+                "NahuPay": "NahuPay\\Laravel\\Facades\\NahuPay"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
