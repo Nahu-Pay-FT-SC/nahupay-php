@@ -19,6 +19,7 @@ use NahuPay\Exception\ApiException;
  * - ApiException on non-2xx or success=false responses
  * - Request timeout
  */
+
 class HttpClient
 {
     private const DEFAULT_BASE_URL = 'https://api.nahupay.com/api/v1';
