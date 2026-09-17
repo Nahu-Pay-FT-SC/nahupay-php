@@ -22,7 +22,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: Run tests
-        run: vendor/bin/phpunit
+        run: php tests/webhook_test.php
 
   # Packagist auto-syncs from GitHub on every push/tag — no publish step needed.
   # Just make sure the repo is linked at https://packagist.org/packages/nahupay/nahupay-php
